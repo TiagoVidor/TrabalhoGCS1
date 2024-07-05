@@ -1,0 +1,74 @@
+import java.util.ArrayList;
+import java.util.List;
+
+abstract class Visitante {
+    private String nome;
+    private int anoNascimento;
+    private List<Atracao> atracoesVisitadas;
+
+    public Visitante(String nome, int anoNascimento) {
+        this.nome = nome;
+        this.anoNascimento = anoNascimento;
+        this.atracoesVisitadas = new ArrayList<>();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getAnoNascimento() {
+        return anoNascimento;
+    }
+
+    public void visitarAtracao(Atracao atracao) {
+        atracoesVisitadas.add(atracao);
+    }
+
+    public List<Atracao> getAtracoesVisitadas() {
+        return atracoesVisitadas;
+    }
+
+    public abstract double getPrecoIngresso();
+}
+
+class VisitanteAdulto extends Visitante {
+    private String telefone;
+
+    public VisitanteAdulto(String nome, int anoNascimento, String telefone) {
+        super(nome, anoNascimento);
+        this.telefone = telefone;
+    }
+
+    @Override
+    public double getPrecoIngresso() {
+        return 100.00;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+}
+
+class VisitanteCrianca extends Visitante {
+    private String nomeResponsavel;
+    private String telefoneResponsavel;
+
+    public VisitanteCrianca(String nome, int anoNascimento, String nomeResponsavel, String telefoneResponsavel) {
+        super(nome, anoNascimento);
+        this.nomeResponsavel = nomeResponsavel;
+        this.telefoneResponsavel = telefoneResponsavel;
+    }
+
+    @Override
+    public double getPrecoIngresso() {
+        return 80.00;
+    }
+
+    public String getNomeResponsavel() {
+        return nomeResponsavel;
+    }
+
+    public String getTelefoneResponsavel() {
+        return telefoneResponsavel;
+    }
+}
