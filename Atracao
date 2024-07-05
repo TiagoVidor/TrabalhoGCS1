@@ -1,1 +1,21 @@
-// aqui vai ser desenvolvida a classe atração
+class Atracao {
+    private String nome;
+    private int contadorVisitantes;
+
+    public Atracao(String nome) {
+        this.nome = nome;
+        this.contadorVisitantes = 0;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getContadorVisitantes() {
+        return contadorVisitantes;
+    }
+
+    public void incrementarVisitantes() {
+        contadorVisitantes++;
+    }
+}
