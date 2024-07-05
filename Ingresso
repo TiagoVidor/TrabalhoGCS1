@@ -1,0 +1,28 @@
+class Ingresso {
+    private String data;
+    private int numeroSequencial;
+    private Visitante visitante;
+
+    public Ingresso(String data, int numeroSequencial, Visitante visitante) {
+        this.data = data;
+        this.numeroSequencial = numeroSequencial;
+        this.visitante = visitante;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public int getNumeroSequencial() {
+        return numeroSequencial;
+    }
+
+    public Visitante getVisitante() {
+        return visitante;
+    }
+
+    @Override
+    public String toString() {
+        return data + " seq " + String.format("%03d", numeroSequencial);
+    }
+}
